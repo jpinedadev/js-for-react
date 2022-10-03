@@ -236,6 +236,153 @@ console.log('El area de un pentagono: '+areaPentagono(a,b))
   b3(); // Window
 
 
+//OBJETOS
+//es como una variable especial que puede contener más variables en su interior.
+
+//Declaración de un objeto 
+const player = {
+  name: "Manz",
+  life: 99,
+  power: 10,
+};
+
+//Propiedades de un objeto
+// Notación con puntos (preferida)
+console.log(player.name);     // Muestra "Manz"
+console.log(player.life);     // Muestra 99
+// Notación con corchetes
+console.log(player["name"]);  // Muestra "Manz"
+console.log(player["life"]);  // Muestra 99
+
+//Añadir propiedades 
+// FORMA 1: A través de notación con puntos
+const player2 = {};
+player2.name = "Julio";
+player2.life = 88;
+player2.power = 7;
+
+console.log(player2.name);
+console.log(player2.life);
+console.log(player2.power);
+
+// FORMA 2: A través de notación con corchetes
+const player3 = {};
+player3["name"] = "Manz";
+player3["life"] = 95;
+player3["power"] = 20;
+
+console.log(player3["name"]);
+console.log(player3["life"]);
+console.log(player3["power"]);
+
+/*Métodos de un objeto 
+Si dentro de una variable del objeto metemos una función (o una variable que contiene una función), tendríamos lo que se denomina un método de un objeto:*/
+const user = {
+  name: "Manz",
+  talk: function() { return "Hola"; }
+};
+user.name;       // Es una variable (propiedad), devuelve "Manz"
+user.talk();     // Es una función (método), se ejecuta y devuelve "Hola"
+
+//Crear un objeto para una red social y agregar las propiedades: celular, pais, ciudad, una funcion saludar+name 
+
+const user2 = {
+    name: 'Julio',
+    lastname: 'Pineda',
+    email:'jpineadeveloper@gmail.com'
+}
+
+console.log(user2.name)
+console.log(user2.lastname)
+console.log(user2.email)
+user2.celular = '092458645'
+user2.address = {}
+user2.address.pais='Ecuador'
+user2.address.ciudad='Guayaquil'
+console.log(user2.celular)
+console.log(user2.address.pais)
+console.log(user2.address.ciudad)
+user2.saludar = function() {return "Hola "+user2.name}
+console.log(user2.saludar())
+
+//JSON
+//es un formato ligero de datos, con una estructura (notación) específica
+/* JSON.parse() = Transforma un json a objeto
+    JSON.stringify() = Transforma un objeto a json
+*/
+
+const json = {
+  "name": "Manz",
+  "life": 3,
+  "totalLife": 6,
+  "power": 10,
+  "dead": false,
+  "props": ["invisibility", "coding", "happymood"],
+  "senses": {
+    "vision": 50,
+    "audition": 75,
+    "taste": 40,
+    "touch": 80
+  }
+}
+
+console.log(json)
+//Convertir JSON a objeto 
+const json2 = `{
+  "name": "Manz",
+  "life": 99
+}`;
+
+console.log(json2)
+const userJson = JSON.parse(json2);
+console.log(userJson)
+console.log(userJson.name);  // "Manz"
+console.log(userJson.life);  // 99
+
+//Convertir objeto a JSON 
+const userJson2 = {
+  name: "Manz",
+  life: 99,
+  talk: function () {
+    return "Hola!";
+  },
+};
+
+console.log(JSON.stringify(userJson2));       // '{"name":"Manz","life":99}'
 
 
+//Mas ejemplos de JSON
+//objeto javascript
+const usuario = {
+    "id":"012345678",
+    "username":"carlosazaustre",
+    "password":"sdfgdfhsadsdf",
+    "data":{
+        "name":"Carlos Azaustre",
+        "email":"carlosazaustre@gmail.com",
+        "city":"Madrid",
+        "country":"ES"
+    },
+    "preferences":{
+        "contact":{
+            "email":true,
+            "notify":true
+        },
+        "interest":[
+            "javascript",
+            "nodejs",
+            "angularjs"
+        ]
+    }
+};
 
+//accediendo a sus propiedades
+console.log(usuario)
+console.log(usuario.data.city);
+console.log(usuario.preferences.interest)
+//Serializando convertir objeto a json
+const jsonSerializado = JSON.stringify(usuario);
+console.log(jsonSerializado)
+//Reconstruido JSON a objeto
+const jsonReconstruido = JSON.parse(jsonSerializado)
+console.log(jsonReconstruido)
